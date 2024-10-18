@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="StarOfArtifice"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="StarOfArtifice"
+
+[file_customization]
+
+folder_colors={
+"res://scripts/attacks/": "red",
+"res://scripts/battles/": "orange",
+"res://scripts/characters/": "purple",
+"res://scripts/statusEffects/": "green"
+}
