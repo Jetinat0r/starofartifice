@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmg4jwd81vhoj"]
+
+[ext_resource type="Script" path="res://Scripts/TempEncounter.cs" id="1_nyom0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nyom0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 348.0
+offset_top = 309.0
+offset_right = 856.0
+offset_bottom = 332.0
+text = "Combat not implemented yet. Press \"TAB\" to return to overworld."

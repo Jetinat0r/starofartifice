@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtvnhpikcanep"]
+
+[ext_resource type="Script" path="res://Scripts/PartyStats.cs" id="1_y1br7"]
+
+[node name="PartyStats" type="Node2D"]
+script = ExtResource("1_y1br7")

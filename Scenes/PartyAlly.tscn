@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjnqatieah6yr"]
+
+[ext_resource type="Script" path="res://Scripts/PartyAlly.cs" id="1_8cksd"]
+[ext_resource type="Texture2D" uid="uid://b0ajldrb7u5qk" path="res://Art (PLACEHOLDERS)/AllyBox.png" id="1_8dylb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhyfo"]
+size = Vector2(16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdy4o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8dylb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Ally" type="CharacterBody2D"]
+script = ExtResource("1_8cksd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dhyfo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jdy4o")
+animation = &"idle"

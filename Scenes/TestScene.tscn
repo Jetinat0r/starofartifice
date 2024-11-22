@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxugi8gdc0luh"]
+
+[ext_resource type="PackedScene" uid="uid://cgyuyapo3i1ey" path="res://Scenes/Player.tscn" id="1_8id7h"]
+[ext_resource type="PackedScene" uid="uid://cdbsmkpku6v4r" path="res://Scenes/OverworldExit.tscn" id="2_4bxp1"]
+[ext_resource type="PackedScene" uid="uid://cjnqatieah6yr" path="res://Scenes/PartyAlly.tscn" id="3_05efl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("2_4bxp1")]
+position = Vector2(2, 62)
+
+[node name="Player" parent="." instance=ExtResource("1_8id7h")]
+position = Vector2(100, 8)
+
+[node name="Ally3" parent="." groups=["Party"] instance=ExtResource("3_05efl")]
+position = Vector2(75, 8)
+
+[node name="Ally" parent="." groups=["Party"] instance=ExtResource("3_05efl")]
+position = Vector2(50, 8)
+
+[node name="Ally2" parent="." groups=["Party"] instance=ExtResource("3_05efl")]
+position = Vector2(25, 8)

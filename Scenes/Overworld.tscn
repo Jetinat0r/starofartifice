@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo37kmo47at8u"]
+
+[ext_resource type="PackedScene" uid="uid://dy5eng8ds4vc3" path="res://Scenes/OverworldLocation.tscn" id="1_o5tl4"]
+[ext_resource type="PackedScene" uid="uid://cgyuyapo3i1ey" path="res://Scenes/Player.tscn" id="2_e5a13"]
+[ext_resource type="PackedScene" uid="uid://cjnqatieah6yr" path="res://Scenes/PartyAlly.tscn" id="3_ly1ju"]
+[ext_resource type="PackedScene" uid="uid://ba61ntpb4h88b" path="res://Scenes/EncounterTrigger.tscn" id="4_56o1i"]
+[ext_resource type="PackedScene" uid="uid://dtw8ln842t47t" path="res://Scenes/RandomEncounterZone.tscn" id="5_y8rn6"]
+
+[node name="World" type="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("1_o5tl4")]
+position = Vector2(238, 85)
+
+[node name="Player" parent="." instance=ExtResource("2_e5a13")]
+position = Vector2(100, 8)
+
+[node name="Ally3" parent="." groups=["Party"] instance=ExtResource("3_ly1ju")]
+position = Vector2(75, 8)
+
+[node name="Ally" parent="." groups=["Party"] instance=ExtResource("3_ly1ju")]
+position = Vector2(50, 8)
+
+[node name="Ally2" parent="." groups=["Party"] instance=ExtResource("3_ly1ju")]
+position = Vector2(25, 8)
+
+[node name="Encounter Trigger" parent="." instance=ExtResource("4_56o1i")]
+position = Vector2(98, 149)
+
+[node name="Area2D2" parent="." instance=ExtResource("5_y8rn6")]
+position = Vector2(366, 70)
+scale = Vector2(5, 5)

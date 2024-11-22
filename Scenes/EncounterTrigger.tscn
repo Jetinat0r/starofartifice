@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba61ntpb4h88b"]
+
+[ext_resource type="Script" path="res://Scripts/EncounterTrigger.cs" id="1_vsaox"]
+[ext_resource type="Texture2D" uid="uid://dlqtsiqkwqc1b" path="res://Art (PLACEHOLDERS)/EnemyBox.png" id="2_g5wt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg01v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qme7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g5wt7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Encounter Trigger" type="Area2D"]
+script = ExtResource("1_vsaox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sg01v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qme7j")
+animation = &"Idle"
+
+[connection signal="body_entered" from="." to="." method="onBodyEntered"]
