@@ -147,11 +147,11 @@ public partial class Battle : Node
     {
         curTurn++;
 
-        if(curTurn >= battleRounds[curRound].Count())
+        if(curTurn >= battleRounds[curRound].Count)
         {
             curTurn = 0;
             curRound += 1;
-            if (curRound >= battleRounds.Count())
+            if (curRound >= battleRounds.Count)
             {
                 battleRounds.Add(PrepRound(curRound));
             }
