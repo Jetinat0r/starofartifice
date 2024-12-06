@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0vo0phw3wkqs"]
+
+[ext_resource type="Script" path="res://scripts/characters/Character.cs" id="1_no0tf"]
+[ext_resource type="Resource" uid="uid://qtdiuv2xlyhb" path="res://prefabs/attacks/testAttack/TestAttack1.tres" id="2_5mktn"]
+[ext_resource type="Texture2D" uid="uid://dmix7ppgbok41" path="res://textures/Debug/DebugPlayerCharacter.png" id="2_ujtwc"]
+[ext_resource type="Resource" uid="uid://cus1wyon6w6i2" path="res://prefabs/attacks/testAttack/TestAttack2.tres" id="4_57b36"]
+
+[node name="TestPlayerChar1" type="Node"]
+script = ExtResource("1_no0tf")
+characterName = "Jet"
+debugCharacterTexture = ExtResource("2_ujtwc")
+maxHp = 5.0
+maxMana = 3.0
+baseAttack = 2.0
+baseSpeed = 2.0
+baseTargetChance = 100.0
+knownAttacks = [ExtResource("2_5mktn"), ExtResource("4_57b36")]

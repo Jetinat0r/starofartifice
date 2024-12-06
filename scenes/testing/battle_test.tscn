@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://cakw5sxgngynn"]
+
+[ext_resource type="Script" path="res://scripts/testing/CharacterInstantiator.cs" id="1_vsb4u"]
+[ext_resource type="Script" path="res://scripts/battles/Battle.cs" id="1_xc7rn"]
+[ext_resource type="Texture2D" uid="uid://cswajcr1qn15w" path="res://textures/Debug/DebugSelector.png" id="2_sienx"]
+[ext_resource type="Script" path="res://scripts/testing/BattleTester.cs" id="3_jjfq3"]
+[ext_resource type="PackedScene" uid="uid://c0vo0phw3wkqs" path="res://prefabs/characters/testCharacter/TestPlayerChar1.tscn" id="4_tqyph"]
+[ext_resource type="PackedScene" uid="uid://8fy1e3ibkab2" path="res://prefabs/characters/testCharacter/TestEnemyChar1.tscn" id="5_p432h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aiowf"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_4fj0c"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a48sl"]
+gradient = SubResource("Gradient_4fj0c")
+fill_from = Vector2(0.676606, 1)
+fill_to = Vector2(0.243119, 0.174312)
+
+[node name="BattleTest" type="Node3D"]
+
+[node name="Battle" type="Node3D" parent="." node_paths=PackedStringArray("playerTeamSlots", "enemyTeamSlots", "DEBUG_TURN_LABEL", "DEBUG_ATTACKER_SELECTOR", "DEBUG_DEFENDER_SELECTOR")]
+script = ExtResource("1_xc7rn")
+playerTeamSlots = [NodePath("../BattleField/PlayerTeamSlots/Slot1"), NodePath("../BattleField/PlayerTeamSlots/Slot2"), NodePath("../BattleField/PlayerTeamSlots/Slot3"), NodePath("../BattleField/PlayerTeamSlots/Slot4")]
+enemyTeamSlots = [NodePath("../BattleField/EnemyTeamSlots/Slot1"), NodePath("../BattleField/EnemyTeamSlots/Slot2"), NodePath("../BattleField/EnemyTeamSlots/Slot3"), NodePath("../BattleField/EnemyTeamSlots/Slot4")]
+DEBUG_TURN_LABEL = NodePath("DebugLabel")
+DEBUG_ATTACKER_SELECTOR = NodePath("../BattleField/AttackerSelector")
+DEBUG_DEFENDER_SELECTOR = NodePath("../BattleField/DefenderSelector")
+
+[node name="DebugLabel" type="Label" parent="Battle"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cur Turn: Player
+Turn Number: 0"
+label_settings = SubResource("LabelSettings_aiowf")
+
+[node name="BattleField" type="Node3D" parent="."]
+
+[node name="BattleGround" type="Sprite3D" parent="BattleField"]
+transform = Transform3D(64, 0, 0, 0, 30.248, 0, 0, 0, 18.244, 0, 0, -1)
+texture = SubResource("GradientTexture2D_a48sl")
+
+[node name="AttackerSelector" type="Sprite3D" parent="BattleField"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.98)
+modulate = Color(0, 1, 0, 1)
+texture = ExtResource("2_sienx")
+
+[node name="DefenderSelector" type="Sprite3D" parent="BattleField"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.98)
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_sienx")
+
+[node name="PlayerTeamSlots" type="Node3D" parent="BattleField"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -0.99)
+
+[node name="Slot1" type="Node3D" parent="BattleField/PlayerTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Slot2" type="Node3D" parent="BattleField/PlayerTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Slot3" type="Node3D" parent="BattleField/PlayerTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="Slot4" type="Node3D" parent="BattleField/PlayerTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="EnemyTeamSlots" type="Node3D" parent="BattleField"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -0.99)
+
+[node name="Slot1" type="Node3D" parent="BattleField/EnemyTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Slot2" type="Node3D" parent="BattleField/EnemyTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Slot3" type="Node3D" parent="BattleField/EnemyTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="Slot4" type="Node3D" parent="BattleField/EnemyTeamSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="CharacterInstantiator" type="Node3D" parent="." node_paths=PackedStringArray("playerCharacters", "enemyCharacters")]
+script = ExtResource("1_vsb4u")
+playerCharacters = [NodePath("../CharacterHolder/TestPlayerChar1"), NodePath("../CharacterHolder/TestPlayerChar2"), NodePath("../CharacterHolder/TestPlayerChar3"), NodePath("../CharacterHolder/TestPlayerChar4")]
+enemyCharacters = [NodePath("../CharacterHolder/TestEnemyChar1"), NodePath("../CharacterHolder/TestEnemyChar2"), NodePath("../CharacterHolder/TestEnemyChar3"), NodePath("../CharacterHolder/TestEnemyChar4")]
+
+[node name="BattleTester" type="Node3D" parent="." node_paths=PackedStringArray("characters", "battle")]
+script = ExtResource("3_jjfq3")
+characters = NodePath("../CharacterInstantiator")
+battle = NodePath("../Battle")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.703671)
+projection = 1
+size = 16.0
+
+[node name="CharacterHolder" type="Node3D" parent="."]
+
+[node name="TestPlayerChar1" parent="CharacterHolder" instance=ExtResource("4_tqyph")]
+
+[node name="TestEnemyChar1" parent="CharacterHolder" instance=ExtResource("5_p432h")]
+
+[node name="TestPlayerChar2" parent="CharacterHolder" instance=ExtResource("4_tqyph")]
+
+[node name="TestEnemyChar2" parent="CharacterHolder" instance=ExtResource("5_p432h")]
+
+[node name="TestPlayerChar3" parent="CharacterHolder" instance=ExtResource("4_tqyph")]
+
+[node name="TestEnemyChar3" parent="CharacterHolder" instance=ExtResource("5_p432h")]
+
+[node name="TestPlayerChar4" parent="CharacterHolder" instance=ExtResource("4_tqyph")]
+
+[node name="TestEnemyChar4" parent="CharacterHolder" instance=ExtResource("5_p432h")]

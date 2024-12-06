@@ -1,5 +1,7 @@
 //Holds all necessary data to determine own order in battle
 //  and what character to use
+using System.Collections.Generic;
+
 public partial class BattleTurn
 {
     public Fighter fighter;
@@ -23,5 +25,30 @@ public partial class BattleTurn
         fighter = _fighter;
         round = _round;
         speed = _speed;
+    }
+}
+
+//Sorting function for turn order
+public class SortSpeedAscendingHelper : IComparer<BattleTurn>
+{
+    public static IComparer<BattleTurn> SortSpeedAscending()
+    {
+        return new SortSpeedAscendingHelper();
+    }
+
+    public int Compare(BattleTurn x, BattleTurn y)
+    {
+        if (x.fighter.GetSpeed() > y.fighter.GetSpeed())
+        {
+            return -1;
+        }
+        else if (x.fighter.GetSpeed() < y.fighter.GetSpeed())
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

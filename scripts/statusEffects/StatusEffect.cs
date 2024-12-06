@@ -1,12 +1,22 @@
 //Instance of status effect
+using Godot;
+
 public partial class StatusEffect
 {
-    public StatusEffectData statusEffectData;
+    [Export]
+    public StatusEffectType type = StatusEffectType.Buff;
+    [Export]
+    public int turnDuration = 1;
+    [Export]
+    public Alignment alignment = Alignment.None;
+    [Export]
+    public DamageType damageType = DamageType.Primal;
+
+    //Instance Variable
     public int remainingTurns;
 
-    public StatusEffect(StatusEffectData _statusEffectData)
+    public StatusEffect()
     {
-        statusEffectData = _statusEffectData;
-        remainingTurns = _statusEffectData.turnDuration;
+        remainingTurns = turnDuration;
     }
 }

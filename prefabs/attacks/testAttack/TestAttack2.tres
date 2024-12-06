@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://cus1wyon6w6i2"]
+
+[ext_resource type="Script" path="res://scripts/attacks/Attack.cs" id="1_pvv86"]
+
+[resource]
+script = ExtResource("1_pvv86")
+baseAttackDamage = 2.0
+manaCost = 0.0
+turnUpkeep = 0
+retrogradeModifier = 1.0
+resonanceAlignment = 1
+resonanceBonus = 1.0
+damageType = 0
+attackName = "STRUGGLE"
+canTargetEnemies = true
+canTargetAllies = false

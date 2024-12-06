@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="StarOfArtifice"
+run/main_scene="res://scenes/testing/battle_test.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,5 +25,6 @@ folder_colors={
 "res://scripts/attacks/": "red",
 "res://scripts/battles/": "orange",
 "res://scripts/characters/": "purple",
-"res://scripts/statusEffects/": "green"
+"res://scripts/statusEffects/": "green",
+"res://scripts/testing/": "gray"
 }

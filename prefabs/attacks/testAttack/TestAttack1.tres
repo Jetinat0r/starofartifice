@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://qtdiuv2xlyhb"]
+
+[ext_resource type="Script" path="res://scripts/attacks/Attack.cs" id="1_hvjux"]
+
+[resource]
+script = ExtResource("1_hvjux")
+baseAttackDamage = 2.0
+manaCost = 0.0
+turnUpkeep = 0
+retrogradeModifier = 1.0
+resonanceAlignment = 1
+resonanceBonus = 1.0
+damageType = 0
+attackName = "SMACK"
+canTargetEnemies = true
+canTargetAllies = false
