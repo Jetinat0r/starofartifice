@@ -29,7 +29,7 @@ public partial class Character : Node
     public float baseCritChange = 1f;
     [Export]
     public Array<Attack> knownAttacks = new Array<Attack>();
-
+    
     //Instance vars
     public float curHp;
     public float curMana;
